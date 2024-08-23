@@ -1,0 +1,9 @@
+// Position data of the AM.
+syntax = "proto3";
+package whereable.t2am;
+
+message WGS84_Position { 
+    double latitude_wgs = 1; 
+    double longitude_wgs = 2; 
+    double altitude_wgs = 3; 
+}

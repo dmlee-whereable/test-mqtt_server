@@ -1,0 +1,19 @@
+// command to stop the AM vehicle
+// Recipient: AM
+// Sender: Control
+// Communication Protocol: MQTT over 5G
+edition = "2023"
+package whereable.t2am;
+import "Header.proto";
+
+message Stop {
+	enum StopPriority {
+	  UNKNOWN= 0;
+	  P0 = 1;
+	  P1 = 2;
+	}
+
+  Header header = 1;
+  StopPriority priority = 2;
+  bool resume_operation = 3;
+}

@@ -1,0 +1,11 @@
+// System Check Message
+// Recipient: AM
+// Sender: Control
+// Communication Protocol: MQTT over Cat M1
+syntax = "proto3";
+package whereable.t2am;
+import "Header.proto";
+
+message ControlConnectionCheck {
+	Header header = 1;
+}

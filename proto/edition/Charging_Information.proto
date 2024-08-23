@@ -1,0 +1,16 @@
+// Charging Data Message
+// Recipient: Control System
+// Sender: AM
+// Communication Protocol: MQTT over Cat M1 / MQTT over 5G Module
+// Description: Reports charging progress to the control system every second.
+edition = "2023"
+package whereable.t2am;
+import "Header.proto";
+import "Battery.proto";
+
+message Charging_Information {
+	Header header = 1;
+	Battery battery = 2;
+  uint32 charging_time = 3;
+  uint32 remaining_time = 4;
+}

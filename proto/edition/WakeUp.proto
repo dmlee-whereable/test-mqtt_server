@@ -1,0 +1,11 @@
+// Commands to wake up Am
+// Recipient: AM
+// Sender: Control
+// Communication Protocol: MQTT over Cat M1
+edition = "2023"
+package whereable.t2am;
+import "Header.proto";
+
+message WakeUp {
+	Header header = 1;
+}

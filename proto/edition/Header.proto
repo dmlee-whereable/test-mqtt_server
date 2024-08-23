@@ -1,0 +1,10 @@
+edition = "2023";
+package whereable.t2am;
+// version 240729.001
+
+message Header {
+	fixed32 version = 1;    // 24 bits for major, 8 bits for minor (example: 240729.213)
+	fixed32 class_info = 2; // 16 bits for message class (0: not defined, 1: registration verification request, 2: registration verification response),
+	                        // 16 bits for sender class (0: not defined, 1: server(FMS), 2: client(agent))
+	int64 timestamp = 3;    // unix epoch (time elapsed since 1970-01-01 00:00:00 UTC in nanoseconds)
+}

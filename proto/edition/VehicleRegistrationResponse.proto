@@ -1,0 +1,12 @@
+// Vehicle Registration Confirmation Message
+// Recipient: Control
+// Sender: Am
+// Communication Protocol: MQTT over 5G Module
+edition = "2023"
+package whereable.t2am;
+import "Header.proto";
+
+message VehicleRegistrationResponse {
+	Header header = 1;
+	string vehicle_id = 2;
+}

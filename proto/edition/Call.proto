@@ -1,0 +1,30 @@
+// Commands Forwarded to AM
+// Recipient: AM
+// Sender: Control
+// Communication Protocol: MQTT over 5G
+edition = "2023"
+package whereable.t2am;
+import "Header.proto";
+import "WGS84_Position.proto";
+
+message Call {
+	enum CallPriority {
+	  UNKNOWN = 0;
+	  P0 = 1;       // 반드시 바로 수행해야하는 CALL 명령
+	  P1 = 2;       // 다음에 수행 할 CALL 명령 (관리자에 의해 수동으로 부여됨)
+	  P2 = 3;       // 다음에 수행 할 CALL 명령 (시스템에 의해 자동으로 부여됨)
+  }
+	
+  num CallReason {
+    UNKNOWN_SUB = 0;
+    BATTERY_LOW = 1;
+    WAIT_FOR_LEADING_VEHICLE = 2;
+    WAIT_AT_DESTINATION = 3;
+    GO_TO_NEAREST_STATION = 4;
+  }
+
+  Header header = 1;
+  CallPriority priority = 2;
+  optional CallSubtitle subtitle = 3;
+  WGS84_Position destination = 4;
+}

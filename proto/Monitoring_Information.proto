@@ -1,0 +1,30 @@
+// Sersor Infomation
+// Recipient: AM
+// Sender: Control
+// Communication Protocol: MQTT over 5G module / MQTT over Cat M1
+syntax = "proto3";
+package whereable.t2am;
+import "Header.proto";
+import "Battery.proto";
+import "WGS84_Geometry_Pose.proto";
+
+message Monitoring_Information {
+	enum VehicleState {
+		UNKNOWN = 0;
+    WAITING = 1;
+    IDLE = 2;
+    DRIVING = 3;
+    CHARGING = 4;
+    ERROR = 5;
+    FATAL = 6;
+	}
+
+  Header header = 1;
+  VehicleState vehicle_state = 2;
+  Battery battery = 3;
+  WGS84_Geometry_Pose geometry_pose = 4;
+  uint32 remaining_drive_time = 5;
+  uint32 time_since_charge = 6;
+  repeated bool seat_occupancy = 7;
+  repeated bool luggage_presence = 8;
+}

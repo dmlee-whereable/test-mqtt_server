@@ -1,0 +1,26 @@
+// Trip End Report Message
+// Recipient: Control System
+// Sender: AM
+// Communication Protocol: MQTT over 5G module
+edition = "2023";
+package whereable.t2am;
+import "Header.proto";
+
+message TripEnd {
+  enum TripIssue {
+    TRIP_COMPLETED = 0;
+    CANCELED_BY_PASSENGER = 1;
+    DROPPED_OFF = 2;
+    MECHANICAL_FAILURE = 3;
+    RETURNED = 4;
+    REMOTE_STOP = 5;
+    COLLISION = 6;
+    LONG_TERM_STOP = 7;
+  }
+
+  Header header = 1;
+  string trip_id = 2;
+  optional TripIssue trip_issue = 3;
+  float mileage = 4;
+  WGS84_Position arrival_location = 5;
+}

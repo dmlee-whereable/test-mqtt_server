@@ -1,0 +1,43 @@
+// Driving Information Message
+// Recipient: Control System
+// Sender: AM
+// Communication Protocol: MQTT over 5G module
+// Description: Reports current driving data and status of the AM vehicle at 1-second intervals.
+syntax = "proto3";
+package whereable.t2am;
+import "Header.proto";
+import "WGS84_Geometry_Pose.proto";
+import "Battery.proto";
+
+message Driving {
+	enum DrivingStatus {
+    UNKNOWN = 0;
+    BOARDING_WAIT = 1;
+    SETTING_UP_FOR_DEPARTURE = 2;
+    AUTONOMOUS_DRIVING = 3;
+    CONTROLLER_MANUAL_DRIVING = 4;
+    PHYSICAL_MANUAL_DRIVING = 5;
+    REMOTE_CONTROL_DRIVING = 6;
+    CHARGING = 7;
+    STOP_BY_PASSENGER = 8;
+    STOP_BY_AGENT = 9;
+    STOP_BY_CONTROL = 10;
+    ADMIN_HOLD = 11;
+    WAITING_TO_GET_OFF = 12;
+	}
+	
+  Header header = 1;
+  DrivingStatus status = 2;
+  float speed = 3;
+  WGS84_Geometry_Pose wgs84_geometry_pose = 4;
+  uint32 steering_angle = 5;
+  uint32 driving_time = 6;
+  repeated bool seat_occupancy = 7;
+  repeated bool luggage_presence = 8;
+  bool is_front = 9;
+  bool is_brake = 10;
+  bool is_auto = 11;
+  Battery battery = 12;
+  uint32 remaining_drive_time = 13;
+  uint32 time_since_charge = 14;
+}

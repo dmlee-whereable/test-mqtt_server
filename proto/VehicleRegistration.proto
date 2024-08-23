@@ -1,0 +1,12 @@
+syntax = "proto3";
+package whereable.t2am;
+import "Header.proto";
+
+message VehicleRegistration {
+  Header header = 1;
+}
+
+message VehicleRegistrationResponse {
+  Header header = 1;
+  string vehicle_id = 2;
+}

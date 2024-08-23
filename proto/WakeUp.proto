@@ -1,0 +1,7 @@
+syntax = "proto3";
+package whereable.t2am;
+import "Header.proto";
+
+message WakeUp {
+	Header header = 1;
+}

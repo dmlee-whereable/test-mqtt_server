@@ -1,0 +1,11 @@
+// Response to the Wake Up Command
+// Recipient: Control
+// Sender: AM
+// Communication Protocol: MQTT over 5G Module
+edition = "2023"
+package whereable.t2am;
+import "Header.proto";
+
+message WakeUpAck {
+	Header header = 1;
+}

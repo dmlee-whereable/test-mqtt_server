@@ -1,0 +1,27 @@
+// Point of Interest (Poi)
+// Recipient: AM
+// Sender: Control System
+// Communication Protocol: MQTT over 5G module
+syntax = "proto3";
+package whereable.t2am;
+import "Header.proto";
+import "WGS84_Position.proto";
+
+message Poi {
+  enum PoiType {
+    UNKNOWN_TYPE = 0;       // Prevents invalid values.
+    STATION = 1;            // Represents a vehicle station.
+    CHARGING_STATION = 2;   // Represents a charging station for electric vehicles.
+  }
+  enum Area {
+    UNKNOWN_AREA = 0;  // Prevents invalid values.
+    T2_EAST = 1;       // Eastern part of the T2 terminal.
+    T2_WEST = 2;       // Western part of the T2 terminal.
+  }
+
+  Header header = 1;
+  string poi_name = 2;
+  PoiType poi_type = 3;
+  Area area = 4;
+  WGS84_Position wgs84_position = 5;
+}

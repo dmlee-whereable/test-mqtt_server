@@ -1,0 +1,11 @@
+// Response to ControlConnection Command
+// Recipient: AM
+// Sender: Control
+// Communication Protocol: MQTT over Cat M1
+edition = "2023"
+package whereable.t2am;
+import "Header.proto";
+
+message ControlConnectionCheckAck {
+	Header header = 1;
+}

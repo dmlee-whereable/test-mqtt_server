@@ -1,0 +1,10 @@
+// Position and orientation data of the AM.
+edition = "2023"
+package whereable.t2am;
+
+message WGS84_Geometry_Pose {
+  double latitude_wgs = 1;
+  double longitude_wgs = 2;
+  float altitude_wgs = 3;
+  uint32 heading_deg = 4;
+}

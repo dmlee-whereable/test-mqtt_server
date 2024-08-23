@@ -1,0 +1,8 @@
+syntax = "proto3";
+package whereable.t2am;
+
+message Header {
+  fixed32 version = 1;
+  fixed32 class_info = 2;
+  int64 timestamp = 3;
+}
